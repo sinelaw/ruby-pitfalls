@@ -21,8 +21,8 @@ method (arg) is not the same as method(arg)
 For example, a contribed example involving `nil`:
   
     def nil.+­(x)
-     return 59+x
-     end
+      return 59+x
+    end
   
 Later:
   
