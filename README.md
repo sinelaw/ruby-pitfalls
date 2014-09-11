@@ -20,27 +20,27 @@ method (arg) is not the same as method(arg)
 
 For example, a contribed example involving `nil`:
   
-  def nil.+­(x)
-   return 59+x
-   end
+    def nil.+­(x)
+     return 59+x
+     end
   
 Later:
-
-  nil + 3
-  # evaluates to 62...
+  
+    nil + 3
+    # evaluates to 62...
   
 Or worse:
-
-  class Shoko­
-    def howMany
-      return @x
+  
+    class Shoko­
+      def howMany
+        return @x
+      end
     end
-  end
-  
-  Shoko.new.howMany­
-  # returns nil
-  
-  Shoko.new.­howMany + 3
-  # evaluates to 62
-  
-  
+    
+    Shoko.new.howMany­
+    # returns nil
+    
+    Shoko.new.­howMany + 3
+    # evaluates to 62
+    
+    
