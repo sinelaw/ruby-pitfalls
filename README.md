@@ -18,23 +18,29 @@ method (arg) is not the same as method(arg)
 
 ## Many built-in objects are mutable
 
-For example, nil:
+For example, a contribed example involving `nil`:
   
-  > def nil.+­(x)
-  .. return 59+x
-  .. end
-  => nil
-  > nil + 3
-  => 62
-  > class Shoko­
-  .. def how
-  .... return @x
-  .... end
-  .. end
-  => nil
-  > Shoko.new.­how
-  => nil
-  > Shoko.new.­how + 3
-  => 62
+  def nil.+­(x)
+   return 59+x
+   end
+  
+Later:
+
+  nil + 3
+  # evaluates to 62...
+  
+Or worse:
+
+  class Shoko­
+    def howMany
+      return @x
+    end
+  end
+  
+  Shoko.new.howMany­
+  # returns nil
+  
+  Shoko.new.­howMany + 3
+  # evaluates to 62
   
   
