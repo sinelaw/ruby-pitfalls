@@ -10,7 +10,27 @@ If a subclass defines a method with the same name but different signature - less
 
 ## {} and do..end are not equivalent
 
-Curly braces {} bind more tightly than do..end, so they are not syntactically equivalent. See http://stackoverflow.com/a/5587399/562906.
+Curly braces {} bind more tightly than do..end, so they are not syntactically equivalent. 
+Quote from http://stackoverflow.com/a/5587399/562906 (by [David Brown](http://stackoverflow.com/users/185171/david-brown))
+
+
+> From Programming Ruby:
+
+> > Braces have a high precedence; do has a low precedence. If the method invocation has parameters that are not enclosed in parentheses, the brace form of a block will bind to the last parameter, not to the overall invocation. The do form will bind to the invocation.
+
+> So the code
+
+> `f param {do_something()}`
+
+> Binds the block to the param variable while the code
+
+> `f param do do_something() end`
+
+> Binds the block to the function f.
+
+> However this is a non-issue if you enclose function arguments in parenthesis.
+
+
 
 ## Space between method name and parenthesis
 
