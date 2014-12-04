@@ -79,9 +79,9 @@ Or worse:
 
     > x = 'b'
     => "b" 
-    2.1.2 :041 > def x.moo; return 3; end
+    > def x.moo; return 3; end
     => :moo 
-    2.1.2 :042 > x.moo
+    > x.moo
     => 3 
 
 This works when `x` is a string, but not when `x` is a number of other builtin types:
