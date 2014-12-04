@@ -30,6 +30,14 @@ Quote from http://stackoverflow.com/a/5587399/562906 (by [David Brown](http://st
 
 > However this is a non-issue if you enclose function arguments in parenthesis.
 
+## Return statement is ignored in setter methods (with '=' suffix) 
+
+    > class Foo; def bla=(i) ; return 33; i; end; end
+     => :bla= 
+    > foo = Foo.new
+     => #<Foo:0x000000017458c8> 
+    > foo.bla = 9
+     => 9 
 
 
 ## Space between method name and parenthesis
