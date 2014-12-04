@@ -75,3 +75,28 @@ Or worse:
     # evaluates to 62
     
     
+## Extending builtin type instances which are immediate values
+
+    > x = 'b'
+    => "b" 
+    2.1.2 :041 > def x.moo; return 3; end
+    => :moo 
+    2.1.2 :042 > x.moo
+    => 3 
+
+This works when `x` is a string, but not when `x` is a number of other builtin types:
+    
+    > x = 2
+     => 2 
+    > def x.moo; return 9; end
+    TypeError: can't define singleton
+
+
+Explanation (quoting J. Ryan Sobol from https://www.ruby-forum.com/topic/50170#16763):
+
+> Quoting http://www.rubygarden.org/faq/entry/show/83 :
+> > "Fixnums, Symbols, true, nil, and false are implemented as immediate values. With immediate values, variables hold the objects themselves, rather than references to them.
+> > Singleton methods cannot be defined for such objects. Two Fixnums of the same value always represent the same object instance, so (for example) instance variables for the Fixnum with the value "one" are shared between all the "ones" is the system. This makes it impossible to define a singleton method for just one of these."
+
+
+
