@@ -36,6 +36,17 @@ Quote from http://stackoverflow.com/a/5587399/562906 (by [David Brown](http://st
 
 method (arg) is not the same as method(arg)
 
+    > def f(a) a * a end
+    => nil
+    > f 2
+    => 4
+    > f(2)
+    => 4
+    > f (2)+1
+    => 9
+    > f(2)+1
+    => 5
+
 ## Many built-in objects are mutable
 
 For example, a contribed example involving `nil`:
