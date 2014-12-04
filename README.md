@@ -32,12 +32,16 @@ Quote from http://stackoverflow.com/a/5587399/562906 (by [David Brown](http://st
 
 ## Return statement is ignored in setter methods (with '=' suffix) 
 
+*Credit: shevy from #ruby on freenode*
+
     > class Foo; def bla=(i) ; return 33; i; end; end
      => :bla= 
     > foo = Foo.new
      => #<Foo:0x000000017458c8> 
     > foo.bla = 9
      => 9 
+
+See https://jeremy.wordpress.com/2010/09/03/assignment-like-methods-and-the-returned-value-in-ruby/ 
 
 
 ## Space between method name and parenthesis
@@ -84,6 +88,8 @@ Or worse:
     
     
 ## Extending builtin type instances which are immediate values
+
+*Credit: shevy from #ruby on freenode*
 
     > x = 'b'
     => "b" 
