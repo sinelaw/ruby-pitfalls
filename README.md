@@ -2,7 +2,7 @@
 
 An evolving list of language pitfalls when writing ruby code.
 
-## Rescue without explicit `Exception` doesn't catch all exceptions
+## Rescue without explicit `Exception` doesn't catch all exceptions, but `ensure` runs
 
 The syntax:
 
@@ -10,9 +10,14 @@ The syntax:
       ...
     rescue
       ...
+    ensure 
+      ...
     end
     
-Won't catch all exceptions. Most notably, it will fail to catch `SyntaxError` exceptions. To catch all exceptions use `rescue Exception` (or with a binding name, `rescue Exception => e`). 
+    
+Won't catch all exceptions. Most notably, it will fail to catch `LoadError` and `SyntaxError` exceptions. However, `ensure` will run regardless. For example, this means that finalization code will run even if a `require` statement failed due to a missing file. 
+
+To catch all exceptions use `rescue Exception` (or with a binding name, `rescue Exception => e`). 
 
 ## Calling a super method may lose information
 
