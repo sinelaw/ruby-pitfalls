@@ -2,6 +2,17 @@
 
 An evolving list of language pitfalls when writing ruby code.
 
+## Rescue without explicit `Exception` doesn't catch all exceptions
+
+The syntax:
+
+    begin
+      ...
+    rescue
+      ...
+    end
+    
+Won't catch all exceptions. Most notably, it will fail to catch `SyntaxError` exceptions. To catch all exceptions use `rescue Exception` (or with a binding name, `rescue Exception => e`). 
 
 ## Calling a super method may lose information
 
