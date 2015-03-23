@@ -128,11 +128,3 @@ Explanation (quoting J. Ryan Sobol from https://www.ruby-forum.com/topic/50170#1
 > > "Fixnums, Symbols, true, nil, and false are implemented as immediate values. With immediate values, variables hold the objects themselves, rather than references to them.
 > > Singleton methods cannot be defined for such objects. Two Fixnums of the same value always represent the same object instance, so (for example) instance variables for the Fixnum with the value "one" are shared between all the "ones" is the system. This makes it impossible to define a singleton method for just one of these."
 
-# Rails Pitfalls
-
-`ActiveRecord::Relation`'s [`update` method](http://apidock.com/rails/ActiveRecord/Relation/update) doesn't report errors or throw exceptions:
-
-> The resulting object is returned whether the object was saved successfully to the database or not.
-
-
-
